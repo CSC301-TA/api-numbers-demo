@@ -9,9 +9,7 @@ import java.io.IOException;
 public abstract class Endpoint implements HttpHandler {
     public void handle(HttpExchange r) {
         try {
-            if (r.getRequestMethod().equals("GET")) {
-                this.handleGet(r);
-            } else if (r.getRequestMethod().equals("POST")) {
+            if (r.getRequestMethod().equals("POST")) {
                 this.handlePost(r);
             }
         } catch (Exception e) {
@@ -19,6 +17,5 @@ public abstract class Endpoint implements HttpHandler {
         }
     }
 
-    public abstract void handleGet(HttpExchange r) throws IOException, JSONException;
     public abstract void handlePost(HttpExchange r) throws IOException, JSONException;
 }
